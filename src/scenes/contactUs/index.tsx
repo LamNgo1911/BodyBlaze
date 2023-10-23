@@ -3,6 +3,7 @@ import { SelectedPage } from "@/shared/types";
 import { motion } from "framer-motion";
 import ContactUsPageGraphic from "@/assets/ContactUsPageGraphic.png";
 import HText from "@/shared/HText";
+import { FormEvent } from "react";
 
 type Props = {
   setSelectedPage: (value: SelectedPage) => void;
@@ -18,7 +19,7 @@ const ContactUs = ({ setSelectedPage }: Props) => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = async (e: any) => {
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     const isValid = await trigger();
     if (!isValid) {
       e.preventDefault();
